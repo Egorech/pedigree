@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       sections: [
-        { id: 'info-section', title: 'Общая информация'},
+        { id: 'info-section', title: 'Основная информация'},
         { id: 'parents-section', title: 'Родители'},
         { id: 'childs-section', title: 'Дети'},
         { id: 'weddings-section', title: 'Брачные союзы'},

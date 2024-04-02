@@ -10,7 +10,7 @@
           activeColor="green"
           inactiveColor="grey"
         />
-        Скрытый режим
+        Доступ: {{ accessSwitch ? 'видимое' : 'скрытое' }}
       </div>
       <h2>
         Роль
