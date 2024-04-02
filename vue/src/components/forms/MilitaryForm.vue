@@ -1,11 +1,20 @@
 <template>
   <div class="custom-form">
-    <ElInput
-      v-model="type"
-      class="custom-form__input"
-      type="text"
-      placeholder="Тип"
-    />
+    <PopOver>
+      <ElInput
+        v-model="type"
+        class="custom-form__input"
+        type="text"
+        placeholder="Тип"
+      />
+
+      <template slot="popover">
+        <InputHelper 
+          :options="hints" 
+          @select="(hint) => selectHint(hint)"
+        />
+      </template>
+    </PopOver>
     <ElInput
       v-model="rank"
       class="custom-form__input"
@@ -42,10 +51,16 @@
 </template>
 
 <script>
+import PopOver from '../ui/PopOver.vue'
+import InputHelper from '../ui/InputHelper.vue'
 import { parseDateString } from '@/services/datePickerOptions'
 
 export default {
   name: 'MilitaryForm',
+  components: {
+    PopOver,
+    InputHelper
+  },
   model: {
     prop: 'value',
     event: 'change'
@@ -97,6 +112,11 @@ export default {
         this.emitChange({ description: value })
       }
     },
+    hints: {
+      get() {
+        return ['Срочная', 'Контракт', 'Мобилизация', 'Доброволец']
+      }
+    },
     startPickerOptions () {
       return {
         disabledDate: time => {
@@ -125,6 +145,9 @@ export default {
         ...this.value,
         ...param
       })
+    },
+    selectHint(hint) {
+      this.type = hint
     }
   }
 }
@@ -132,4 +155,3 @@ export default {
 
 <style>
 </style>
- 
