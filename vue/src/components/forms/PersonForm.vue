@@ -18,12 +18,10 @@
       type="text"
       placeholder="Отчество"
     />
-    <ElInput
-      v-model="gender"
-      class="custom-form__input"
-      type="text"
-      placeholder="Пол"
-    />
+    <ElSelect v-model="gender" placeholder="Пол">
+      <ElOption label="Male" value="male"></ElOption>
+      <ElOption label="Female" value="female"></ElOption>
+    </ElSelect>
     <ElInput
       v-model="maidenName"
       v-if="gender === 'female'"
