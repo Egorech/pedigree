@@ -1,22 +1,20 @@
 <template>
-  <div
-    @mousemove="() => resetTimer()"
-    @keypress="() => resetTimer()"
-  >
-    <RouterView v-if="isActive" />
-    <ScreenSaver v-else />
-    <ModalContainer />
+  <div>
+    <ScreenSaver2>
+      <RouterView />
+      <ModalContainer />
+    </ScreenSaver2>
   </div>
 </template>
 
 <script>
 import ModalContainer from "@/components/parts/ModalContainer"
-import ScreenSaver from "@/components/modals/ScreenSaver.vue"
+import ScreenSaver2 from "@/components/modals/ScreenSaver2.vue"
 
 export default {
   components: {
     ModalContainer,
-    ScreenSaver
+    ScreenSaver2
   },
   data () {
     return {
