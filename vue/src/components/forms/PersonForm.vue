@@ -19,8 +19,8 @@
       placeholder="Отчество"
     />
     <ElSelect v-model="gender" placeholder="Пол">
-      <ElOption label="Male" value="male"></ElOption>
-      <ElOption label="Female" value="female"></ElOption>
+      <ElOption label="Мужской" value="male"></ElOption>
+      <ElOption label="Женский" value="female"></ElOption>
     </ElSelect>
     <ElInput
       v-model="maidenName"
